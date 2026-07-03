@@ -1,5 +1,5 @@
-import { describe, expect, it } from "vitest";
-import { registerSchema } from "@hyperjump/json-schema-coverage/vitest";
+import { describe, expect, it } from "@oai/build-infra/test";
+import { registerSchema } from "@oai/build-infra/schema/vitest";
 
 await registerSchema("./src/schemas/validation/schema.yaml");
 
