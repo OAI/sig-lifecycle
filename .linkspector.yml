@@ -1,0 +1,7 @@
+files:
+  - src/lifecycle.md
+  - EDITORS.md
+  - README.md
+ignorePatterns:
+  - pattern: 'clientdomain.com'
+  - pattern: 'example.org'
