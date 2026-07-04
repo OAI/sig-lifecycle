@@ -19,5 +19,24 @@
     { "value": "Pull requests", "href": "https://github.com/OAI/sig-lifecycle/pulls" }
   ],
   "titleSuffix": "",
-  "schemas": ["schema.yaml"]
+  "schemas": ["schema.yaml"],
+  "release": {
+    "sourcePath": "src/lifecycle.md",
+    "releaseHistoryNote": "$releaseType of the Lifecycle Specification $version",
+    "removeOnReleaseBranch": [
+      "src",
+      "tests/schema/pass",
+      "tests/schema/fail",
+      "tests/schema/schema.test.mjs"
+    ],
+    "schemaVersionRewrite": {
+      "enabled": true,
+      "paths": [
+        "src/schemas/validation/*.yaml",
+        "tests/schema/schema.test.mjs",
+        "tests/schema/pass/*.yaml",
+        "tests/schema/fail/*.yaml"
+      ]
+    }
+  }
 }
