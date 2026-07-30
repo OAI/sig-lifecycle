@@ -1,0 +1,18 @@
+$schema: 'https://json-schema.org/draft/2020-12/schema'
+$id: 'https://spec.openapis.org/lifecycle/1.0/schema/WORK-IN-PROGRESS'
+title: Lifecycle Schema
+description: Validates a Lifecycle Object.
+
+# $dynamicAnchor marks Schema Object positions as an integration point.
+# When this schema is used standalone, $dynamicRef resolves to the standard
+# JSON Schema 2020-12 definition immediately below.
+# When composed with an OAS metaschema (integration mechanism TBD), the OAS
+# dialect fills in this anchor with the full OAS Schema Object definition.
+$defs:
+  schema-object:
+    $dynamicAnchor: schema-object
+    $ref: 'https://json-schema.org/draft/2020-12/schema'
+
+type: object
+properties: {}
+additionalProperties: false
