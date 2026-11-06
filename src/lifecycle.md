@@ -87,6 +87,14 @@ paths:
         # Lifecycle Object fields here
 ```
 
+**Editor's note.** The placement of the Lifecycle Object is provisional.
+SAFs are expected to place their objects under a container field that the OAS
+will define on the OpenAPI, Path Item, and Operation Objects, so that SAFs
+do not add fields directly to core objects. Once the OAS defines that
+container, the Lifecycle Object will move under it, and the `lifecycle` field
+described in [Operation Object Fields](#operation-object-fields) will be
+replaced.
+
 Compatibility between versions of this specification and versions of the OpenAPI
 Specification is determined by publication date. The rules for determining
 compatible version pairs are documented in [TODO: link or section].
@@ -284,9 +292,31 @@ paths:
           description: A page of flights.
 ```
 
-The `changelog` and `announcement` links and the Operation Object's own
-`externalLinks` do not generate headers. A server would emit the same headers
-for `GET /v1/flights` here as for the [example](#example) above.
+Applying the [Header Mapping](#header-mapping), a server would emit the
+following headers in responses to `GET /v1/flights`:
+
+```http
+Deprecation: @1736899200
+Sunset: Tue, 01 Jul 2025 00:00:00 GMT
+Link: <https://docs.example.com/migrate>; rel="deprecation"; type="text/html"
+Link: <https://api.example.com/v2/openapi.yaml>; rel="successor-version"
+Link: <https://docs.example.com/sunset-policy>; rel="sunset"
+```
+
+Each header comes from one Lifecycle Object field:
+
+| Header | Source in the Lifecycle Object |
+| ---- | ---- |
+| `Deprecation: @1736899200` | `date: "2025-01-15T00:00:00Z"` |
+| `Sunset: Tue, 01 Jul 2025 00:00:00 GMT` | `sunset.date: "2025-07-01T00:00:00Z"` |
+| `Link: <…/migrate>; rel="deprecation"` | `externalLinks` entry with `kind: deprecation` |
+| `Link: <…/v2/openapi.yaml>; rel="successor-version"` | `externalLinks` entry with `kind: successor-version` |
+| `Link: <…/sunset-policy>; rel="sunset"` | `externalLinks` entry with `kind: sunset` |
+
+The `changelog` and `announcement` entries in `lifecycle.externalLinks`, and
+the Operation Object's own `externalLinks`, do not generate headers.
+`GET /v2/flights` has no Lifecycle Object, so its responses carry none of
+these headers.
 
 ### Sunset Object
 
