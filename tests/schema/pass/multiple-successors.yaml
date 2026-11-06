@@ -1,0 +1,7 @@
+# successor-version MAY appear more than once
+date: "2025-01-15T00:00:00Z"
+externalLinks:
+  - kind: successor-version
+    url: https://api.example.com/v2/openapi.yaml
+  - kind: successor-version
+    url: https://api.example.com/v3/openapi.yaml

@@ -1,0 +1,6 @@
+# sunset.policy was replaced by externalLinks with kind: sunset
+date: "2025-01-15T00:00:00Z"
+sunset:
+  date: "2025-07-01T00:00:00Z"
+  policy:
+    url: https://docs.example.com/sunset-policy

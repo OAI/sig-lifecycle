@@ -1,0 +1,4 @@
+# migration was replaced by externalLinks with kind: deprecation
+date: "2025-01-15T00:00:00Z"
+migration:
+  url: https://docs.example.com/migrate

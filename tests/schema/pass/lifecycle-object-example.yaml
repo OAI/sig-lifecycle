@@ -1,0 +1,25 @@
+# Lifecycle Object from the spec's Complete OpenAPI Description Example
+date: "2025-01-15T00:00:00Z"
+reason: "Replaced by v2 API with improved performance."
+sunset:
+  date: "2025-07-01T00:00:00Z"
+externalLinks:
+  - kind: deprecation
+    summary: Migrating from Flights v1 to v2
+    description: |
+      Step-by-step guide covering renamed query parameters and the
+      new cursor-based pagination.
+    url: https://docs.example.com/migrate
+  - kind: successor-version
+    summary: Flights API v2
+    description: Use `listFlights_v2` (`GET /v2/flights`) instead.
+    url: https://api.example.com/v2/openapi.yaml
+  - kind: sunset
+    summary: API sunset policy
+    url: https://docs.example.com/sunset-policy
+  - kind: changelog
+    summary: Changelog entry announcing the v1 deprecation
+    url: https://docs.example.com/changelog#2025-01-15
+  - kind: announcement
+    summary: Sunset announcement
+    url: https://status.example.com/announcements/flights-v1-sunset
